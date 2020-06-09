@@ -1,37 +1,45 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http:/www.thymleaf.org" >
+<html xmlns:th="http:/www.thymleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Contact Card</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-    <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css}">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" th:href="@{dashboard/style.css}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link th:href="@{https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,500;1,700&display=swap}" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{dashboard/fonts/awesome/css/all.css}">
+    <link rel="stylesheet" th:href="@{dashboard/main.css}">
 </head>
 <body>
-<!-- partial:index.partial.html -->
+
 <div class="contact-card">
-    <div class="contact-card__header-image">
+
+    <div class="contact-card__header">
+        <button class="logout"><i class="fas fa-sign-out-alt"></i>logout</button>
         <div class="contact-card__avatar"></div>
     </div>
-    <p class="contact-card__name">Callum Brown</p>
-    <ul>
-        <li class="contact-card__link contact-card__link--email"><a title="Email Callum Brown" href="mailto:">&#128241 cabrown96@live.com</a></li>
-        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:">&#128231 +1 123-456-7890</a></li>
-        <li class="contact-card__link contact-card__link--email"><a title="Email Callum Brown" href="mailto:">&#128241 cabrown96@live.com</a></li>
-        <li class="contact-card__link contact-card__link--mobile"><a title="Call Callum Brown" href="tel:">&#128231 +1 123-456-7890</a></li>
-    </ul>
-    <ul class="contact-card__footer">
-        <li class="contact-card__footer__link contact-card__footer__link--twitter"><a title="Link to Callum Brown's Twitter profile" href="https://twitter.com/callumbrown___"><i class="fa fa-twitter"></i></a></li>
-        <li class="contact-card__footer__link contact-card__footer__link--linkedin"><a title="Link to Callum Brown's LinkedIn profile" href="https://www.linkedin.com/in/callumbrown---/"><i class="fa fa-linkedin"></i></a></li>
-        <li class="contact-card__footer__link contact-card__footer__link--codepen"><a title="Link to Callum Brown's Codepen profile" href="https://codepen.io/callumbrown___"><i class="fa fa-codepen"></i></a></li>
-        <li class="contact-card__footer__link contact-card__footer__link--dribbble"><a title="Link to Callum Brown's Dribbble profile" href="https://dribbble.com/callumbrown___"><i class="fa fa-dribbble"></i></a></li>
-    </ul>
+
+    <p class="contact-card__name" th:text="${name}">User name</p>
+
+    <div class="contact-card__wrapper">
+
+        <span class="contact-card__link">
+            <a href="tel:" ><i class="fas fa-mobile-alt" th:text="${phone}"></i></a>
+        </span>
+
+        <span class="contact-card__link">
+            <a href="mailto:" ><i class="far fa-envelope" th:text="${email}"></i></a>
+        </span>
+
+        <span class="contact-card__link">
+            <a href="#" ><i class="fa fa-registered" th:text="${authorities}"></i></a>
+        </span>
+
+        <span class="contact-card__link">
+            <a href="#" ><i class="fa fa-user-circle" th:text="${login}"></i></a>
+        </span>
+
+    </div>
+
 </div>
-<!-- partial -->
-<script  th:src="@{dashboard/script.js}"></script>
 
 </body>
 </html>
